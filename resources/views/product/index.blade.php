@@ -4,56 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <style>
-        ul {
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
-          background-color: #333;
-        }
-        
-        li {
-          float: left;
-        }
-        
-        li a {
-          display: block;
-          color: white;
-          text-align: center;
-          padding: 14px 16px;
-          text-decoration: none;
-        }
-        
-        li a:hover {
-          background-color: #646464;
-        }
-        th, td {
-          padding: 5px;
-        }
-        </style>
     <title>Document</title>
 </head>
+<style>
+  /* CSS for Add New Product button */
+.add-product-button {
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Add padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make it inline */
+    font-size: 16px; /* Font size */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Add cursor pointer */
+}
+
+/* Hover effect */
+.add-product-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+.n-success {
+      
+      margin: 25px;
+      width: 20%;
+      padding: 12px 37px 12px 12px;
+      color: #333;
+      border-radius: 2px;
+      background: #fff;
+      position: center;
+      font-weight: bold;
+    font-family:'cairo',serif;
+    text-align: center;
+        box-sizing: border-box;
+    }
+        
+          .n-success {
+      border: 2px solid #32a846;
+      color: #32a846;
+    }
+</style>
 <body>
     <div>
-        <nav>
-            <ul class="nav-list">
-                <li class="nav-item"><a href="/">Welcome</a></li>
-                <li class="nav-item"><a href="/product">Product</a></li>
-                <li class="nav-item"><a href="/product/create">Create</a></li>
-            </ul>
-        </nav>
-    </div>
-    <h1>Hello cruel world, this is a fucking table</h1>
-    <div>
       @if(session()->has('success'))
-      <div>
+      <div class="n-success">
         {{session('success')}}
       </div>
       @endif
     </div>
     <br />
     <div>
+      <div>
+        <a href="{{route('product.create')}}" class="add-product-button">Add New Product</a>  
+      </div>
       <table border="1">
       <tr>
         <th>ID</th>
@@ -78,7 +82,7 @@
           <form method="post" action="{{route('product.destroy', ['product' => $product])}}">
             @csrf
             @method('delete')
-            <input type="submit" value="Delete" />
+            <input type="submit" value="Buy" />
           </form>
         </td>
       </tr>
